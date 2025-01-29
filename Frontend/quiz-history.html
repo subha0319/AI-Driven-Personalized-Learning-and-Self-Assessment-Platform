@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="hamburger" id="menu-btn">&#9776;</div>
+    <nav id="sidebar" class="sidebar hidden">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="generate-materials.html">Generate Materials</a></li>
+            <li><a href="materials-generated.html">Materials Generated</a></li>
+            <li><a href="take-quiz.html">Take Quiz</a></li>
+            <li><a href="quiz-history.html">Quiz History</a></li>
+			<!-- <li><a href="index.html">Logout</a></li> -->
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Quiz History</h1>
+
+        <div class="quiz-history-content">
+            <!-- Left Section: Quiz History Details -->
+            <div class="quiz-history-left">
+                <h2>Quiz Records</h2>
+                <div id="quiz-history-list">
+                    <!-- Quiz history dynamically generated here -->
+                </div>
+            </div>
+
+            <!-- Right Section: Score, Strengths, and Weaknesses -->
+            <div class="quiz-history-right">
+                <h2>Performance Summary</h2>
+                <div id="score-section">
+                    <h3>Score</h3>
+                    <p id="quiz-score">-</p>
+                </div>
+
+                <div id="strength-section">
+                    <h3>Topics of Strength</h3>
+                    <ul id="strength-list">
+                        <!-- Strength topics dynamically generated -->
+                    </ul>
+                </div>
+
+                <div id="weakness-section">
+                    <h3>Topics of Weakness</h3>
+                    <ul id="weakness-list">
+                        <!-- Weakness topics dynamically generated -->
+                    </ul>
+                    <button onclick="retakeWeaknessQuiz()">Take Quiz on Weakness Topics</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

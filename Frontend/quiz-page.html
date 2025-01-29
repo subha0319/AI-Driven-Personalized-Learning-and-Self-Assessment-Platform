@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="hamburger" id="menu-btn">&#9776;</div>
+    <nav id="sidebar" class="sidebar hidden">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="generate-materials.html">Generate Materials</a></li>
+            <li><a href="materials-generated.html">Materials Generated</a></li>
+            <li><a href="take-quiz.html">Take Quiz</a></li>
+            <li><a href="quiz-history.html">Quiz History</a></li>
+			<!-- <li><a href="index.html">Logout</a></li> -->
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="containerSmall">
+        <h1>Quiz</h1>
+        <div id="quiz-container" class="quiz-container">
+            <form id="quiz-form">
+                <!-- Questions will be dynamically added here -->
+            </form>
+            <button id="end-quiz" onclick="endQuiz()">End</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Call the function to load quiz page content
+        window.onload = loadQuizPage;
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="hamburger" id="menu-btn">&#9776;</div>
+    <nav id="sidebar" class="sidebar hidden">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="generate-materials.html">Generate Materials</a></li>
+            <li><a href="materials-generated.html">Materials Generated</a></li>
+            <li><a href="take-quiz.html">Take Quiz</a></li>
+            <li><a href="quiz-history.html">Quiz History</a></li>
+			<!-- <li><a href="index.html">Logout</a></li> -->
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="containerSmall">
+        <h1>Take Quiz</h1>
+        
+        <!-- Subject and Unit Selection -->
+        <div id="quiz-setup" class="quiz-setup">
+            <label for="subject">Select Subject:</label>
+            <select id="subject" onchange="populateUnits()" required>
+                <option value="">--Select Subject--</option>
+                <!-- Subjects will be added dynamically -->
+            </select>
+
+            <label for="unit">Select Unit:</label>
+            <select id="unit" required>
+                <option value="">--Select Unit--</option>
+                <!-- Units will populate based on subject -->
+            </select>
+			
+			
+
+
+            <button id="start-quiz" onclick="navigateToQuiz()">Start</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
