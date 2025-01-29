@@ -3,6 +3,7 @@ AI-powered learning platform that generates structured study material based on u
 
 ## FrontEnd
   Frontend
+    
     ├───generate-materials.html
     
     ├───home.html
