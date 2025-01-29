@@ -5,21 +5,13 @@ AI-powered learning platform that generates structured study material based on u
   Frontend
     
     ├───generate-materials.html
-    
     ├───home.html
-    
     ├───materials-generated.html
-    
     ├───PW2 sample generated material.pdf
-    
     ├───quiz-history.html
-    
     ├───quiz-page.html
-    
     ├───script.js
-    
     ├───style.css
-    
     └───take-quiz.html
     
 
