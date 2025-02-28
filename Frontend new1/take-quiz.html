@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Quiz | AI Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>AI Learning</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="generate-materials.html"><i class="fas fa-file-alt"></i> Generate Materials</a></li>
+                <li><a href="materials-generated.html"><i class="fas fa-book"></i> View Materials</a></li>
+                <li class="active"><a href="take-quiz.html"><i class="fas fa-question-circle"></i> Take Quiz</a></li>
+                <li><a href="quiz-history.html"><i class="fas fa-history"></i> Quiz History</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Take Quiz</h1>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div id="quizSetup" class="quiz-setup">
+                    <h2>Quiz Setup</h2>
+                    <div class="form-group">
+                        <label for="quizSubject">Select Subject</label>
+                        <select id="quizSubject">
+                            <option value="">-- Select Subject --</option>
+                            <option value="mathematics">Operating Systems</option>
+                            <option value="physics">Artificial Intelligence</option>
+                            <option value="chemistry">Cloud Computing</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quizUnit">Select Unit</label>
+                        <select id="quizUnit">
+                            <option value="">-- Select Unit --</option>
+                            <option value="1">Unit 1</option>
+                            <option value="2">Unit 2</option>
+                            <option value="3">Unit 3</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Topics</label>
+                        <div class="topics-checkbox">
+                            <div class="topic-checkbox-item">
+                                <input type="checkbox" id="topic1" value="topic1">
+                                <label for="topic1">Intelligent Agents</label>
+                            </div>
+                            <div class="topic-checkbox-item">
+                                <input type="checkbox" id="topic2" value="topic2">
+                                <label for="topic2">Rational Agents</label>
+                            </div>
+                            <div class="topic-checkbox-item">
+                                <input type="checkbox" id="topic3" value="topic3">
+                                <label for="topic3">Q learning</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="generate-btn" onclick="generateQuiz()">Generate Quiz</button>
+                </div>
+
+                <div id="quizContainer" class="quiz-container" style="display: none;">
+                    <h2>Artificial Intelligence Quiz - Unit 3</h2>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 20%"></div>
+                        </div>
+                        <span class="progress-text">Question 1 of 5</span>
+                    </div>
+
+                    <div class="question-container">
+                        <div class="question">
+                            <h3>Question 1:</h3>
+                            <p>Which of the following is the primary goal of Artificial Intelligence?</p>
+                        </div>
+
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" id="option1" name="question1">
+                                <label for="option1">To mimic human intelligence</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="option2" name="question1">
+                                <label for="option2">To create superhuman capabilities</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="option3" name="question1">
+                                <label for="option3">To replace human workers</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="option4" name="question1">
+                                <label for="option4">To build advanced machines</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-navigation">
+                        <button type="button" class="nav-btn prev-btn" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="nav-btn next-btn">Next <i class="fas fa-arrow-right"></i></button>
+                        <button type="button" class="submit-btn" style="display: none;">Submit Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

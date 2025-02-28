@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Study Materials | AI Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>AI Learning</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="active"><a href="generate-materials.html"><i class="fas fa-file-alt"></i> Generate Materials</a></li>
+                <li><a href="materials-generated.html"><i class="fas fa-book"></i> View Materials</a></li>
+                <li><a href="take-quiz.html"><i class="fas fa-question-circle"></i> Take Quiz</a></li>
+                <li><a href="quiz-history.html"><i class="fas fa-history"></i> Quiz History</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Generate Study Materials</h1>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                </div>
+            </div>
+
+            <div class="content-section">
+                <form id="generateForm">
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Enter subject name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="unitNumber">Unit Number</label>
+                        <input type="number" id="unitNumber" min="1" placeholder="Enter unit number">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Books</label>
+                        <div id="booksContainer">
+                            <div class="book-item">
+                                <div class="book-number">Book 1</div>
+                                <input type="file" accept=".pdf" class="book-file">
+                                <button type="button" class="remove-btn" onclick="removeBook(this)">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-btn" onclick="addBook()">Add Book</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Topics</label>
+                        <div id="topicsContainer">
+                            <div class="topic-item">
+                            </div>
+                        </div>
+                        <button type="button" class="add-btn" onclick="addTopic()">Add Topic</button>
+                    </div>
+
+                    <div class="generate-options">
+                        <button type="button" class="generate-btn" id="generateSummary">Generate Summary</button>
+                        <button type="button" class="generate-btn" id="generateBrief">Generate Brief Summary</button>
+                        <button type="button" class="generate-btn" id="generateKeywords">Generate Keywords</button>
+                    </div>
+                </form>
+
+                <div class="generated-content" id="generatedContent">
+					<br></br>
+                    <h2>Generated Content</h2>
+                    <div class="content-display">
+                        <p class="placeholder-text"></p>
+                    </div>
+                    <!-- <button type="button" class="save-btn" id="saveContent" disabled>Save Content</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

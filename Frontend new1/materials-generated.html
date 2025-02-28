@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Generated Materials | AI Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.5/css/selectize.default.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>AI Learning</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="generate-materials.html"><i class="fas fa-file-alt"></i> Generate Materials</a></li>
+                <li class="active"><a href="materials-generated.html"><i class="fas fa-book"></i> View Materials</a></li>
+                <li><a href="take-quiz.html"><i class="fas fa-question-circle"></i> Take Quiz</a></li>
+                <li><a href="quiz-history.html"><i class="fas fa-history"></i> Quiz History</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>View Generated Materials</h1>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                </div>
+            </div>
+            <div class="content-section">
+                <div class="material-selection">
+                    <div class="form-group">
+                        <label for="subjectSelect">Select Subject</label>
+                        <select id="subjectSelect" class="form-control">
+                            <option value="" selected disabled>Select a subject</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="unitSelect">Select Unit</label>
+                        <select id="unitSelect" class="form-control" disabled>
+                            <option value="" selected disabled>Select a unit</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="topicSelect">Select Topics (Optional)</label>
+                        <select id="topicSelect" class="form-control" multiple disabled>
+                            <option value="" disabled>Select topics</option>
+                        </select>
+                        <small class="form-text">You can select multiple topics or leave empty to show all</small>
+                    </div>
+                    
+                    <button id="viewMaterialsBtn" class="view-btn" disabled>
+                        <i class="fas fa-eye"></i> View Materials
+                    </button>
+                </div>
+
+                <div id="materialsList" class="materials-list hidden">
+                    <h3 id="materialsListTitle">Available Materials</h3>
+                    <div class="materials-table-container">
+                        <table id="materialsTable" class="materials-table">
+                            <thead>
+                                <tr>
+                                    <th>Topic Name</th>
+                                    <th>PDF Name</th>
+                                    <th>Summary Type</th>
+                                </tr>
+                            </thead>
+                            <tbody id="materialsTableBody">
+                                <!-- Materials rows will be added here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdfViewerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalPdfTitle">Document Title</h3>
+                <button id="closeModalBtn" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfFrame" class="pdf-frame" src=""></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.5/js/standalone/selectize.min.js"></script>
+    <script>
+        // Sample data structure for subjects, units, topics, and materials
+        const subjectsData = {
+            "Machine Learning": {
+                "Unit 1": {
+                    "topics": ["Supervised Learning", "Unsupervised Learning"],
+                    "materials": [
+                        {"topic": "Supervised Learning", "pdf": "supervised_learning.pdf", "type": "Comprehensive"},
+                        {"topic": "Unsupervised Learning", "pdf": "unsupervised_learning.pdf", "type": "Brief"}
+                    ]
+                },
+                "Unit 2": {
+                    "topics": ["Deep Learning", "Neural Networks"],
+                    "materials": [
+                        {"topic": "Deep Learning", "pdf": "deep_learning.pdf", "type": "Comprehensive"},
+                        {"topic": "Neural Networks", "pdf": "neural_networks.pdf", "type": "Keywords"}
+                    ]
+                }
+            },
+            "Artificial Intelligence": {
+                "Unit 1": {
+                    "topics": ["AI Basics", "Search Algorithms"],
+                    "materials": [
+                        {"topic": "AI Basics", "pdf": "ai_basics.pdf", "type": "Comprehensive"},
+                        {"topic": "Search Algorithms", "pdf": "search_algorithms.pdf", "type": "Brief"}
+                    ]
+                }
+            }
+        };
+
+        // Initialize page
+        $(document).ready(function() {
+            // Populate subjects dropdown
+            const subjectSelect = $('#subjectSelect');
+            Object.keys(subjectsData).forEach(subject => {
+                subjectSelect.append(`<option value="${subject}">${subject}</option>`);
+            });
+
+            // Initialize selectize for topic multi-select
+            $('#topicSelect').selectize({
+                plugins: ['remove_button'],
+                delimiter: ',',
+                placeholder: 'Select topics (optional)',
+                create: false
+            });
+
+            // Subject selection change handler
+            subjectSelect.on('change', function() {
+                const selectedSubject = $(this).val();
+                
+                // Reset and disable unit select
+                const unitSelect = $('#unitSelect');
+                unitSelect.html('<option value="" selected disabled>Select a unit</option>');
+                unitSelect.prop('disabled', false);
+                
+                // Reset and disable topic select
+                const topicSelect = $('#topicSelect')[0].selectize;
+                topicSelect.clear();
+                topicSelect.disable();
+                
+                // Disable view button
+                $('#viewMaterialsBtn').prop('disabled', true);
+                
+                // Hide materials list
+                $('#materialsList').addClass('hidden');
+                
+                // Populate units for selected subject
+                if (selectedSubject && subjectsData[selectedSubject]) {
+                    Object.keys(subjectsData[selectedSubject]).forEach(unit => {
+                        unitSelect.append(`<option value="${unit}">${unit}</option>`);
+                    });
+                }
+            });
+
+            // Unit selection change handler
+            $('#unitSelect').on('change', function() {
+                const selectedSubject = $('#subjectSelect').val();
+                const selectedUnit = $(this).val();
+                
+                // Reset and enable topic select
+                const topicSelect = $('#topicSelect')[0].selectize;
+                topicSelect.clear();
+                topicSelect.clearOptions();
+                
+                // Hide materials list
+                $('#materialsList').addClass('hidden');
+                
+                if (selectedSubject && selectedUnit && 
+                    subjectsData[selectedSubject] && 
+                    subjectsData[selectedSubject][selectedUnit]) {
+                    
+                    // Enable view button
+                    $('#viewMaterialsBtn').prop('disabled', false);
+                    
+                    // Populate topics for selected unit
+                    const topics = subjectsData[selectedSubject][selectedUnit].topics;
+                    topicSelect.enable();
+                    
+                    topics.forEach(topic => {
+                        topicSelect.addOption({value: topic, text: topic});
+                    });
+                }
+            });
+
+            // View materials button click handler
+            $('#viewMaterialsBtn').on('click', function() {
+                displayMaterials();
+            });
+
+            // Close modal handler
+            $('#closeModalBtn').on('click', function() {
+                $('#pdfViewerModal').hide();
+            });
+
+            // Close modal when clicking outside of modal content
+            $(window).on('click', function(event) {
+                if ($(event.target).is('#pdfViewerModal')) {
+                    $('#pdfViewerModal').hide();
+                }
+            });
+        });
+
+        // Function to display materials based on selections
+        function displayMaterials() {
+            const selectedSubject = $('#subjectSelect').val();
+            const selectedUnit = $('#unitSelect').val();
+            const selectedTopics = $('#topicSelect').val();
+
+            if (selectedSubject && selectedUnit) {
+                const unitData = subjectsData[selectedSubject][selectedUnit];
+                let materials = [];
+
+                // Filter materials based on selected topics
+                if (selectedTopics && selectedTopics.length > 0) {
+                    materials = unitData.materials.filter(material => 
+                        selectedTopics.includes(material.topic)
+                    );
+                } else {
+                    // If no topics selected, show all materials
+                    materials = unitData.materials;
+                }
+
+                // Update materials table
+                const tableBody = $('#materialsTableBody');
+                tableBody.empty();
+
+                materials.forEach(material => {
+                    tableBody.append(`
+                        <tr>
+                            <td>${material.topic}</td>
+                            <td><a href="#" class="pdf-link" data-pdf="${material.pdf}">${material.pdf}</a></td>
+                            <td>${material.type}</td>
+                        </tr>
+                    `);
+                });
+
+                // Add event listeners to PDF links
+                $('.pdf-link').on('click', function(e) {
+                    e.preventDefault();
+                    const pdfName = $(this).data('pdf');
+                    openPdfViewer(pdfName);
+                });
+
+                // Show materials list
+                $('#materialsList').removeClass('hidden');
+                $('#materialsListTitle').text(`Materials for ${selectedSubject} - ${selectedUnit}`);
+            }
+        }
+
+        // Function to open PDF viewer
+        function openPdfViewer(pdfName) {
+            $('#modalPdfTitle').text(pdfName);
+            
+            // In a real implementation, you would set the actual PDF URL
+            // For this example, we'll use a placeholder
+            $('#pdfFrame').attr('src', window.open('https://mozilla.github.io/pdf.js/web/viewer.html'));
+           
+        }
+    </script>
+</body>
+</html>
