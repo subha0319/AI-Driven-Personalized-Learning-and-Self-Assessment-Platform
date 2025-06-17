@@ -34,7 +34,6 @@ This platform automates the creation of syllabus-aligned educational content and
     │   │   └── quiz_output.txt
     │   ├── Syllabus generation/
     │   │   └── syllabusGen.py
-    │   └── content_processor.log
     │
     ├── Evaluation/
     │   ├── BERT quiz.py
