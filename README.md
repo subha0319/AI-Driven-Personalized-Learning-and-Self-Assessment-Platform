@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-This platform automates the creation of syllabus-aligned educational content and personalized assessments using AI. With a focus on scalability and performance, it streamlines the generation of learning materials and MCQs from textbook PDFs and curriculum documents. The system also provides performance evaluation, feedback, and remedial content suggestions.
+This platform automates the creation of syllabus-aligned educational content and personalized assessments using AI. With a focus on scalability and performance, it streamlines the generation of learning materials and MCQs from textbook PDFs and curriculum documents. The system also provides performance evaluation, feedback, and remedial quizzes to improve users' performance.
 
 ## 📁 Project Directory Structure
     
@@ -52,31 +52,29 @@ This platform automates the creation of syllabus-aligned educational content and
 
 ### Automated Material Generation:
 
-Extracts content from textbooks (PDF) and syllabus files.
+- Extracts content from textbooks (PDF) and syllabus files.
 
-### Generates summaries: 
-
-Comprehensive, Brief, Keywords, Subtopics.
+- Generates summaries: Comprehensive, Brief, Keywords, Subtopics.
 
 ### Quiz Generation and Evaluation:
 
-AI-based generation of MCQs based on summarized content.
+- AI-based generation of MCQs based on summarized content.
 
-Instant evaluation of student answers.
+- Instant evaluation of student answers.
 
-Correct answers and scoring with weak-topic tracking.
+- Correct answers and scoring with weak-topic tracking.
 
 ### Evaluation Layer:
 
-Semantic alignment using Sentence Transformers and MiniLM.
+- Semantic alignment using Sentence Transformers and MiniLM.
 
-Readability evaluation using Flesch Reading Ease, Dale-Chall, Gunning Fog, and Flesch-Kincaid metrics.
+- Readability evaluation using Flesch Reading Ease, Dale-Chall, Gunning Fog, and Flesch-Kincaid metrics.
 
 ### Personalized Learning Path:
 
-Tracks quiz history, weak topics.
+- Tracks quiz history, weak topics.
 
-Generates remedial content and follow-up assessments.
+- Generates remedial content and follow-up assessments.
 
 ### 🛠️ Tech Stack
 
@@ -95,7 +93,7 @@ AI Models & Libraries: Meta LLaMA, Sentence Transformers, ReportLab, Fitz, Ollam
 
 ## 📦 Installation
 
-git clone https://github.com/yourusername/AI-Driven-Personalized-Learning-and-Self-Assessment-Platform.git
+git clone https://github.com/subha0319/AI-Driven-Personalized-Learning-and-Self-Assessment-Platform.git
 cd Backend/DBConnections
 pip install -r requirements.txt
 python app.py
