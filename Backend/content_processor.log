@@ -1,4 +1,0 @@
-2025-04-08 23:15:43,215 - INFO - Starting content processing script
-2025-04-08 23:15:53,766 - INFO - Successfully connected to MongoDB Atlas
-2025-04-08 23:15:53,766 - ERROR - An error occurred during document processing: Collection objects do not implement truth value testing or bool(). Please compare with None instead: collection is not None
-2025-04-08 23:15:53,766 - INFO - Processing complete
