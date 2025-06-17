@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz History | AI Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>AI Learning</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="generate-materials.html"><i class="fas fa-file-alt"></i> Generate Materials</a></li>
+                <li><a href="materials-generated.html"><i class="fas fa-book"></i> View Materials</a></li>
+                <li><a href="take-quiz.html"><i class="fas fa-question-circle"></i> Take Quiz</a></li>
+                <li class="active"><a href="quiz-history.html"><i class="fas fa-history"></i> Quiz History</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Quiz History</h1>
+                <div class="user-profile">
+                    <img src="/api/placeholder/40/40" alt="User">
+                </div>
+            </div>
+
+            <div class="content-section">
+                <!-- Two-column layout grid -->
+                <div class="content-grid">
+                    <!-- Left Column: Quiz History List -->
+                    <div class="quiz-history-container">
+                        <h2>Your Recent Quizzes</h2>
+                        <div id="quiz-history-list" class="quiz-history-list">
+                            <!-- Quiz items will be dynamically added here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Performance Summary -->
+                    <div id="performance-summary" class="performance-summary">
+                        <h2 class="performance-title">Performance Analysis</h2>
+                        
+                        <div class="strength-area">
+                            <div class="area-title">
+                                <i class="fas fa-award strength-icon"></i>
+                                <span>Topics of Strength</span>
+                            </div>
+                            <ul id="strength-topics" class="topic-list">
+                                <!-- Strength topics will be added here -->
+                            </ul>
+                        </div>
+                        
+                        <div class="improvement-area">
+                            <div class="area-title">
+                                <i class="fas fa-arrow-up improvement-icon"></i>
+                                <span>Topics for Improvement</span>
+                            </div>
+                            <ul id="improvement-topics" class="topic-list">
+                                <!-- Improvement topics will be added here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

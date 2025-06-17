@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>AI Learning</h2>
+            </div>
+            <ul class="menu">
+                <li class="active"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="generate-materials.html"><i class="fas fa-file-alt"></i> Generate Materials</a></li>
+                <li><a href="materials-generated.html"><i class="fas fa-book"></i> View Materials</a></li>
+                <li><a href="take-quiz.html"><i class="fas fa-question-circle"></i> Take Quiz</a></li>
+                <li><a href="quiz-history.html"><i class="fas fa-history"></i> Quiz History</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Welcome to AI Learning Platform</h1>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                </div>
+            </div>
+
+            <div class="dashboard">
+                <h2>Quick Actions</h2>
+                <div class="quick-actions">
+                    <a href="generate-materials.html" class="card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Generate Study Materials</h3>
+                        <p>Create summaries and keywords from your content</p>
+                    </a>
+                    <a href="materials-generated.html" class="card">
+                        <i class="fas fa-book"></i>
+                        <h3>View Generated Materials</h3>
+                        <p>Access your previously generated content</p>
+                    </a>
+                    <a href="take-quiz.html" class="card">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Take Quiz</h3>
+                        <p>Test your knowledge on your materials</p>
+                    </a>
+                    <a href="quiz-history.html" class="card">
+                        <i class="fas fa-history"></i>
+                        <h3>View Quiz History</h3>
+                        <p>Check your previous quiz attempts</p>
+                    </a>
+                </div>
+
+                <div class="recent-activity">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-file-alt"></i></div>
+                            <div class="activity-details">
+                                <h4>Artificial Intelligence Summary Generated</h4>
+                                <p>Intelligent Agents - Unit 1</p>
+                                <small>2 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-question-circle"></i></div>
+                            <div class="activity-details">
+                                <h4>Quiz Completed</h4>
+                                <p>Operating Systems - CPU Scheduling</p>
+                                <small>Yesterday</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon"><i class="fas fa-book"></i></div>
+                            <div class="activity-details">
+                                <h4>Summary Viewed</h4>
+                                <p>Software Engineering - Process Models, Agile Development, Requirements Engineering</p>
+                                <small>3 days ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

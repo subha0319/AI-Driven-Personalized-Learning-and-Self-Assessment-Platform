@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz History | AI Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles for the new features */
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        .score-column .score-display span {
+            font-size: 0.85em; /* Slightly smaller font for score column */
+        }
+        
+        .no-results-message {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>AI Learning</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="generate-materials.html"><i class="fas fa-file-alt"></i> Generate Materials</a></li>
+                <li><a href="materials-generated.html"><i class="fas fa-book"></i> View Materials</a></li>
+                <li><a href="take-quiz.html"><i class="fas fa-question-circle"></i> Take Quiz</a></li>
+                <li class="active"><a href="quiz-history.html"><i class="fas fa-history"></i> Quiz History</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Quiz History</h1>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                </div>
+            </div>
+
+            <div class="content-section">
+                <!-- Loading indicator -->
+                <div id="loadingIndicator" class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading quiz history...</p>
+                </div>
+                
+                <!-- Error message display -->
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+                <!-- No history message -->
+                <div id="noHistoryMessage" class="no-history-message" style="display: none;">
+                    <i class="fas fa-info-circle"></i>
+                    <p>You haven't taken any quizzes yet. Go to the Take Quiz page to get started!</p>
+                    <a href="take-quiz.html" class="primary-btn"><i class="fas fa-question-circle"></i> Take a Quiz</a>
+                </div>
+
+                <div id="historyContainer" class="history-container" style="display: none;">
+                    <!-- Subjects table -->
+                    <table class="subjects-table">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Quizzes Taken</th>
+                                <th>Average Score</th>
+                                <th>Last Attempt</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="subjectsTableBody">
+                            <!-- Subject rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+
+                    <!-- Topics detail table that shows when a subject is clicked -->
+                    <div id="topicsDetailContainer" class="topics-detail-container" style="display: none;">
+                        <div class="detail-header">
+                            <h3 id="selectedSubjectTitle">Subject Details</h3>
+                            <button id="backToSubjectsBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Subjects</button>
+                        </div>
+                        
+                        <!-- Filter controls -->
+                        <div id="filterContainer" class="filter-container">
+                            <!-- Filters will be populated by JavaScript -->
+                        </div>
+                        
+                        <!-- No results message -->
+                        <div id="noResultsMessage" class="no-results-message">
+                            <i class="fas fa-search"></i>
+                            <p>No quiz results match your filter criteria.</p>
+                        </div>
+                        
+                        <table class="topics-table">
+                            <thead>
+                                <tr>
+                                    <th>Unit</th>
+                                    <th>Topic</th>
+                                    <th>Date Attempted</th>
+                                    <th>Score</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="topicsTableBody">
+                                <!-- Topic rows will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

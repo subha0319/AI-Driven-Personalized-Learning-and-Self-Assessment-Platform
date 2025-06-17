@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results | AI Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>AI Learning</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="generate-materials.html"><i class="fas fa-file-alt"></i> Generate Materials</a></li>
+                <li><a href="materials-generated.html"><i class="fas fa-book"></i> View Materials</a></li>
+                <li><a href="take-quiz.html"><i class="fas fa-question-circle"></i> Take Quiz</a></li>
+                <li class="active"><a href="quiz-history.html"><i class="fas fa-history"></i> Quiz History</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Quiz Results</h1>
+                <div class="user-profile">
+                    <img src="/api/placeholder/40/40" alt="User">
+                </div>
+            </div>
+
+            <div class="content-section">
+                <!-- Quiz Results Header -->
+                <div class="quiz-results-header">
+                    <h2 id="quiz-title">Artificial Intelligence - Unit 3</h2>
+                    <div class="topic-tags">
+                        <span class="topic-tag">Intelligent Agents</span>
+                        <span class="topic-tag">Rational Agents</span>
+                        <span class="topic-tag">Neural Networks</span>
+                    </div>
+                    <div class="quiz-meta">
+                        <div class="meta-item">
+                            <i class="far fa-calendar-alt"></i>
+                            <span id="quiz-date">Feb 25, 2025</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="quiz-duration">25 minutes</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-redo"></i>
+                            <span id="quiz-attempts">Attempt 1</span>
+                        </div>
+                    </div>
+                    
+                    <div class="score-overview">
+                        <div class="score-circle">
+                            <span class="score-text" id="score-percentage">88%</span>
+                        </div>
+                        <div class="score-details">
+                            <h3>Great job!</h3>
+                            <div class="questions-summary">
+                                <div class="summary-item">
+                                    <span class="correct-dot"></span>
+                                    <span id="correct-count">8 Correct</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="incorrect-dot"></span>
+                                    <span id="incorrect-count">2 Incorrect</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Questions Results -->
+                <div id="questions-container" class="questions-container">
+                    <!-- Questions will be dynamically added here -->
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="back-btn" onclick="window.location.href='quiz-history.html'">
+                        <i class="fas fa-arrow-left"></i> Back to History
+                    </button>
+                    <button class="retake-btn" onclick="retakeQuiz()">
+                        <i class="fas fa-redo"></i> Retake Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

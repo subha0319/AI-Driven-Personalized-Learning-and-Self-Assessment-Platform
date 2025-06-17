@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Quiz | AI Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>AI Learning</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="generate-materials.html"><i class="fas fa-file-alt"></i> Generate Materials</a></li>
+                <li><a href="materials-generated.html"><i class="fas fa-book"></i> View Materials</a></li>
+                <li class="active"><a href="take-quiz.html"><i class="fas fa-question-circle"></i> Take Quiz</a></li>
+                <li><a href="quiz-history.html"><i class="fas fa-history"></i> Quiz History</a></li>
+            </ul>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Take Quiz</h1>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="User">
+                </div>
+            </div>
+            <div class="content-section">
+                <div id="quizSetup" class="quiz-setup">
+                    <h2>Quiz Setup</h2>
+                    <div class="form-group">
+                        <label for="quizSubject">Select Subject</label>
+                        <select id="quizSubject">
+                            <option value="">-- Select Subject --</option>
+                            <option value="operating-systems">Operating Systems</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quizUnit">Select Unit</label>
+                        <select id="quizUnit">
+                            <option value="">-- Select Unit --</option>
+                            <option value="1">Unit 1</option>
+                            <option value="2">Unit 2</option>
+                            <option value="3">Unit 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Topics</label>
+                        <div class="topics-checkbox">
+                            <div class="topic-checkbox-item">
+                                <input type="radio" id="topic1" name="quizTopic" value="Computer organisation">
+                                <label for="topic1">process concept</label>
+                            </div>
+                            <div class="topic-checkbox-item">
+                                <input type="radio" id="topic2" name="quizTopic" value="storage structure">
+                                <label for="topic2">interprocess communication</label>
+                            </div>
+                            <div class="topic-checkbox-item">
+                                <input type="radio" id="topic3" name="quizTopic" value="IO structure">
+                                <label for="topic3">process scheduling</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="quizQuestionCount">Number of Questions</label>
+                        <div class="question-count-container">
+                            <input type="number" id="quizQuestionCount" min="1" max="10" value="3" class="question-count-input">
+                            <div class="question-count-controls">
+                                <button type="button" class="count-btn" onclick="decrementQuestionCount()">-</button>
+                                <button type="button" class="count-btn" onclick="incrementQuestionCount()">+</button>
+                            </div>
+                        </div>
+                        <small class="question-count-help">Choose between 1-10 questions</small>
+                    </div>
+                    <button type="button" class="generate-btn" onclick="generateQuiz()">Generate Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
