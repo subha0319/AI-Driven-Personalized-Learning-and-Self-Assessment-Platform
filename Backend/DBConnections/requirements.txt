@@ -1,0 +1,17 @@
+Flask==2.2.5
+Flask-Cors==3.0.10
+pymongo==3.12.3
+sentence-transformers==2.2.2
+reportlab==3.6.12
+fitz==0.0.1.dev2  # PyMuPDF wrapper
+PyMuPDF==1.22.3
+numpy==1.24.3
+scikit-learn==1.2.2
+matplotlib==3.7.1
+nltk==3.8.1
+ollama==0.1.28  # CLI or Python wrapper if available
+transformers==4.40.1
+torch==2.2.2
+tqdm==4.66.4
+pandas==2.2.2
+seaborn==0.13.2
