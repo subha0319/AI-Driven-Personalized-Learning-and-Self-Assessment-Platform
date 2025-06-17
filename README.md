@@ -78,13 +78,13 @@ This platform automates the creation of syllabus-aligned educational content and
 
 ### 🛠️ Tech Stack
 
-Backend: Flask (Python), PyMongo
+- Backend: Flask (Python), PyMongo
 
-Database: MongoDB Atlas (Collections: users, summaries, quizzes, user_attempts, quiz_history, weak_topics)
+- Database: MongoDB Atlas (Collections: users, summaries, quizzes, user_attempts, quiz_history, weak_topics)
 
-Frontend: HTML, CSS, JavaScript
+- Frontend: HTML, CSS, JavaScript
 
-AI Models & Libraries: Meta LLaMA, Sentence Transformers, ReportLab, Fitz, Ollama
+- AI Models & Libraries: Meta LLaMA, Sentence Transformers, ReportLab, Fitz, Ollama
 
 ## 🏗️ System Architecture
 
@@ -93,41 +93,44 @@ AI Models & Libraries: Meta LLaMA, Sentence Transformers, ReportLab, Fitz, Ollam
 
 ## 📦 Installation
 
-git clone https://github.com/subha0319/AI-Driven-Personalized-Learning-and-Self-Assessment-Platform.git
-cd Backend/DBConnections
-pip install -r requirements.txt
-python app.py
+    git clone https://github.com/subha0319/AI-Driven-Personalized-Learning-and-Self-Assessment-Platform.git
+    
+    cd Backend/DBConnections
+    
+    pip install -r requirements.txt
+    
+    python app.py
 
 ## 🧪 API Endpoints
 
-POST /generate-summary
+- POST /generate-summary
 
 Generate and store summaries based on subject, unit, and topics.
 
-GET /get_quiz
+- GET /get_quiz
 
 Retrieve quiz for a selected topic with specified number of questions.
 
-POST /save_quiz_result
+- POST /save_quiz_result
 
 Store user’s quiz attempt with score and topic info.
 
-GET /get_quiz_history
+- GET /get_quiz_history
 
 Fetch all quiz attempts (filterable by subject).
 
 ## 📊 Evaluation
 
-Text summarization quality: cosine similarity, MiniLM embeddings
+- Text summarization quality: cosine similarity, MiniLM embeddings
 
-Readability scores calculated using: Flesch Reading Ease, Gunning Fog Index, Dale-Chall, etc.
+- Readability scores calculated using: Flesch Reading Ease, Gunning Fog Index, Dale-Chall, etc.
 
 ## ✨ Future Enhancements
 
-Real-time progress dashboard
+- Real-time progress dashboard
 
-Dynamic difficulty adjustment
+- Dynamic difficulty adjustment
 
-Teacher login and class management
+- Teacher login and class management
 
-Upload question papers and generate AI-based answers
+- Upload question papers and generate AI-based answers
